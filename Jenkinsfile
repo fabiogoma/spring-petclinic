@@ -9,14 +9,14 @@ pipeline {
       steps {
         container('maven') {
           sh 'mvn -B -ntp package'
-          sh 'ls -ltr'
+          sh "find . -name '*.xml'"
         }
       }
     }
   }
   post {
     always {
-      junit '**/target/surefire-reports/*.xml'
+      junit 'target/surefire-reports/*.xml'
     }
   }
 }
