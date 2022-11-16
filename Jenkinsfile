@@ -8,9 +8,15 @@ pipeline {
     stage('Build') {
       steps {
         container('maven') {
-          sh 'mvn -B -ntp clean package'
+          sh 'mvn -B -ntp package'
+          sh 'ls -ltr'
         }
       }
+    }
+  }
+  post {
+    always {
+      junit '**/target/surefire-reports/*.xml'
     }
   }
 }
