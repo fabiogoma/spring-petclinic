@@ -9,7 +9,7 @@ pipeline {
       steps {
         container('maven') {
           // sh 'mvn -B -ntp package'
-          sh 'mvn package'
+          sh 'mvn -B package'
           sh "find . -name '*.xml'"
         }
       }
