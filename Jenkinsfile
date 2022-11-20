@@ -8,7 +8,8 @@ pipeline {
     stage('Build') {
       steps {
         container('maven') {
-          sh 'mvn -B -ntp package'
+          // sh 'mvn -B -ntp package'
+          sh 'mvn package'
           sh "find . -name '*.xml'"
         }
       }
